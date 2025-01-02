@@ -91,7 +91,7 @@
     <span class="error" th:if="${#fields.hasErrors('etat')}" th:errors="*{etat}"></span>
     <label for="etat">État :</label>
     <select name="etat" id="etat" th:field="*{etat}">
-        <option th:each="e : ${etats}" th:value="${e}" th:text="${e}"></option>
+        <option th:each="e : ${etat}" th:value="${e}" th:text="${e}"></option>
     </select>
 
     <button type="submit">Enregistrer</button>
