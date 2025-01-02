@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une Action</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Ajouter une Action</h1>
+<form th:action="@{/ajouterAction}" method="post" th:object="${action}">
+    <span class="error" th:if="${#fields.hasErrors('titre')}" th:errors="*{titre}"></span>
+    <label for="titre">Titre :</label>
+    <input type="text" name="titre" id="titre" th:field="*{titre}">
+
+    <span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+    <label for="description">Description :</label>
+    <textarea name="description" id="description" th:field="*{description}"></textarea>
+
+    <span class="error" th:if="${#fields.hasErrors('montant')}" th:errors="*{montant}"></span>
+    <label for="montant">Montant :</label>
+    <input type="number" name="montant" id="montant" th:field="*{montant}">
+
+    <span class="error" th:if="${#fields.hasErrors('etat')}" th:errors="*{etat}"></span>
+    <label for="etat">État :</label>
+    <select name="etat" id="etat" th:field="*{etat}">
+        <option th:each="e : ${etats}" th:value="${e}" th:text="${e}"></option>
+    </select>
+
+    <button type="submit">Enregistrer</button>
+    <a th:href="@{/actions}" class="annuler">Retour</a>
+</form>
+</body>
+</html>

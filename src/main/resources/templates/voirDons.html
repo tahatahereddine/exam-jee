@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Voir les Dons</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Voir les Dons</h1>
+<form th:action="@{/dons}" method="get">
+    <label for="actionTitre">Sélectionnez une action :</label>
+    <select name="actionTitre" id="actionTitre" required>
+        <option th:each="action : ${actions}" th:value="${action.titre}" th:text="${action.titre}"></option>
+    </select>
+
+    <button type="submit">Afficher les Dons</button>
+    <a th:href="@{/actions}" class="annuler">Retour</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Actions</title>
+</head>
+<body>
+<h1>Liste des Actions</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Montant</th>
+        <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="action : ${actions}">
+        <td th:text="${action.titre}"></td>
+        <td th:text="${action.description}"></td>
+        <td th:text="${action.montant}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/ajouterAction}">Ajouter une nouvelle action</a>
+</body>
+</html>

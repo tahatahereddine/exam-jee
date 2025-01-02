@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Dons</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Liste des Dons</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Titre</th>
+        <th>Montant</th>
+        <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="don : ${dons}">
+        <td th:text="${don.titre}"></td>
+        <td th:text="${don.montant}"></td>
+        <td th:text="${don.type}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/voirDons}" class="annuler">Retour</a>
+</body>
+</html>
