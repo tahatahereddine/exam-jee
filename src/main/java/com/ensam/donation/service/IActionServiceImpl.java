@@ -39,14 +39,14 @@ public class IActionServiceImpl implements IActionService {
     @Override
     public ActionDto getActionById(Integer id) {
         Action action = actionRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Action not found with id: " + id));
+                .orElseThrow(() -> new RuntimeException("Action n'est pas trouvé " + id));
         return actionMapper.fromActionToActionDto(action);
     }
 
     @Override
     public List<DonDto> getDonsOfActionById(Integer actionId) {
         Action action = actionRepository.findById(actionId)
-                .orElseThrow(() -> new RuntimeException("Action not found with id: " + actionId));
+                .orElseThrow(() -> new RuntimeException("Action n'est pas trouvé: " + actionId));
 
         List<Don> dons = action.getDons();
         return dons.stream().map(donMapper::fromDonToDonDto).toList();
